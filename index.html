@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Syarat 1a: Judul halaman ("Nama Mahasiswa") -->
+    <title>Ahmad Kurnia</title>
+    <style>
+        /* Syarat 1c: Elemen Desain (Background, Warna Teks, & Glassmorphism Layout) */
+        :root {
+            --bg-dark: #0b1120;
+            --card-bg: rgba(30, 41, 59, 0.78);
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(6, 182, 212, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top right, #0f2942, var(--bg-dark) 60%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(6, 182, 212, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .container:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .badge {
+            background: rgba(6, 182, 212, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.cns {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border-color: rgba(52, 211, 153, 0.3);
+        }
+
+        /* Heading Utama */
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #ffffff, #38bdf8, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        /* Styling Paragraf */
+        p {
+            color: #cbd5e1;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .identity-box {
+            background: rgba(15, 23, 42, 0.65);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .identity-item span {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .identity-item strong {
+            color: var(--text-main);
+        }
+
+        /* Area Interaksi JavaScript */
+        .interaction-area {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn-cyber {
+            background: linear-gradient(135deg, var(--accent-cyan), #2563eb);
+            color: #ffffff;
+            border: none;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .btn-cyber:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(6, 182, 212, 0.55);
+            filter: brightness(1.1);
+        }
+
+        .btn-cyber:active {
+            transform: translateY(0);
+        }
+
+        .status-output {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px dashed rgba(16, 185, 129, 0.4);
+            color: #a7f3d0;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px;
+            }
+            h1 {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <div class="badge-group">
+            <span class="badge">UNIVERSITAS TEKNOLOGI BANDUNG</span>
+            <span class="badge cns">TIF RP 24E CNS</span>
+        </div>
+
+        <!-- Syarat 1b: Minimal 4 Teks (1 Heading + 3 Paragraf) -->
+        <!-- TEKS 1: Heading Utama -->
+        <h1 id="main-heading">Ahmad Kurnia — Cyber Security & Web Enthusiast</h1>
+        <div class="subtitle">Tugas Pertemuan 5 • Pemrograman Web 1 (3 SKS)</div>
+
+        <!-- TEKS 2: Paragraf Pertama -->
+        <p>
+            Halo! Saya <strong>Ahmad Kurnia</strong>, mahasiswa Program Studi Teknik Informatika di Universitas Teknologi Bandung (UTB) dengan konsentrasi <em>Computer Network Security</em> (CNS). Website satu halaman ini dirancang khusus untuk memenuhi tugas mata kuliah Pemrograman Web 1 dengan menggabungkan struktur HTML5 semantik, desain antarmuka CSS modern, serta interaktivitas berbasis JavaScript.
+        </p>
+
+        <!-- TEKS 3: Paragraf Kedua -->
+        <p>
+            Ketertarikan utama saya berfokus pada arsitektur keamanan jaringan komputer, perlindungan infrastruktur siber, serta pengembangan aplikasi berbasis web dan <em>mobile</em>. Dalam membangun sebuah sistem informasi, saya percaya bahwa tampilan antarmuka yang intuitif harus selalu berjalan beriringan dengan standar keamanan data yang tangguh di sisi belakang layar.
+        </p>
+
+        <!-- TEKS 4: Paragraf Ketiga -->
+        <p id="dynamic-paragraph">
+            Melalui eksplorasi teknologi web dasar seperti HTML, CSS, dan JavaScript, kita dapat menciptakan halaman yang tidak hanya statis, tetapi juga responsif terhadap aksi pengguna. Silakan klik tombol interaktif di bawah ini untuk menguji fungsi manipulasi DOM dan melihat waktu akses sistem secara langsung (<em>real-time</em>).
+        </p>
+
+        <!-- Informasi Akademik Mahasiswa -->
+        <section class="identity-box">
+            <div class="identity-item">
+                <span>Nama Mahasiswa</span>
+                <strong>Ahmad Kurnia</strong>
+            </div>
+            <div class="identity-item">
+                <span>NIM</span>
+                <strong>24552011297</strong>
+            </div>
+            <div class="identity-item">
+                <span>Kelas / Konsentrasi</span>
+                <strong>TIF RP 24E CNS</strong>
+            </div>
+            <div class="identity-item">
+                <span>Dosen Pengampu</span>
+                <strong>Nova Agustina, S.T., M.Kom.</strong>
+            </div>
+        </section>
+
+        <!-- Syarat 2: Interaksi JavaScript (1 Tombol) -->
+        <div class="interaction-area">
+            <button class="btn-cyber" id="actionBtn" onclick="jalankanInteraksi()">
+                ⚡ Jalankan Verifikasi Sistem & Cek Waktu
+            </button>
+
+            <div class="status-output" id="outputBox">
+                [SYSTEM STANDBY] Klik tombol di atas untuk menampilkan waktu akses dan mengubah status halaman.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let klikCount = 0;
+
+        function jalankanInteraksi() {
+            klikCount++;
+
+            // 1. Mengambil tanggal & jam saat ini dalam format Bahasa Indonesia
+            const sekarang = new Date();
+            const opsiTanggal = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const waktuFormat = sekarang.toLocaleDateString('id-ID', opsiTanggal);
+
+            // 2. Menampilkan Alert (Pesan Pop-up) pada klik pertama
+            alert("Halo Ibu Nova Agustina & Rekan TIF RP 24E CNS!\n\nVerifikasi JavaScript berhasil dijalankan oleh:\nAhmad Kurnia (24552011297)\nWaktu: " + waktuFormat);
+
+            // 3. Mengubah teks di halaman & menampilkan tanggal/jam ke layar
+            const outputBox = document.getElementById("outputBox");
+            const dynamicParagraph = document.getElementById("dynamic-paragraph");
+            const actionBtn = document.getElementById("actionBtn");
+
+            outputBox.innerHTML = `✅ <strong>[VERIFIED #${klikCount}]</strong> Interaksi JS Aktif! | Waktu Akses: <strong>${waktuFormat} WIB</strong>`;
+            outputBox.style.background = "rgba(6, 182, 212, 0.18)";
+            outputBox.style.borderColor = "#38bdf8";
+            outputBox.style.color = "#e0f2fe";
+
+            dynamicParagraph.innerHTML = `✨ <strong>Status Teks Diperbarui oleh JavaScript:</strong> Terima kasih telah menguji tombol interaktif ini! Sistem berhasil memverifikasi identitas <strong>Ahmad Kurnia (24552011297)</strong> dan mencatat waktu interaksi Anda secara langsung pada halaman.`;
+
+            actionBtn.innerHTML = "🔄 Perbarui Waktu & Status Lagi";
+        }
+    </script>
+</body>
+</html>
